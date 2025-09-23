@@ -1,0 +1,303 @@
+.paymentsSection {
+   background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid #00000024;
+  width: 123%;
+  transform: translateX(-120px);
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 0;
+  color: #2D3541;
+}
+
+.line {
+  border-left: 3px solid #4a6cf7;
+  height: 20px;
+  margin-right: 10px;
+}
+
+
+.filterContainer {
+  position: relative;
+}
+
+.filterSection {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  padding: 0.5rem 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: white;
+  transition: all 0.2s ease;
+
+  &:hover {
+    border-color: #4a6cf7;
+  }
+}
+
+.filterLabel {
+  font-size: 12px;
+  color: #2D3541;
+  font-weight: 400;
+}
+
+.filterArrow {
+  font-size: 10px;
+  color: #2D3541;
+  transition: transform 0.2s ease;
+
+  &.rotate {
+    transform: rotate(180deg);
+  }
+}
+
+.filterDropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  min-width: 200px;
+  margin-top: 4px;
+}
+
+.filterOption {
+  padding: 0.8rem 1rem;
+  font-size: 12px;
+  color: #2D3541;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid #f0f0f0;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    background-color: #f8f9fa;
+  }
+
+  &.selected {
+    background-color: #4a6cf7;
+    color: white;
+  }
+}
+
+.paymentsContent {
+  margin-top: 1rem;
+}
+
+.paymentsTable {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.tableHeader {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  padding: 0.8rem 1rem;
+  background-color: #f8f9fa;
+  border-radius: 6px 6px 0 0;
+  font-weight: 500;
+  color: #2D3541;
+  font-size: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.colEmployee {
+  font-weight: 600;
+}
+
+.tableRow {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  padding: 1rem;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  
+  &:last-child {
+    border-bottom: none;
+    border-radius: 0 0 6px 6px;
+  }
+  
+  &:hover {
+    background-color: #f9fafb;
+  }
+}
+
+.colEmployee, .colStatus, .colProgress, .colAction {
+  padding: 0 0.5rem;
+}
+
+.employeeInfo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.employeeAvatar {
+  border: 1px solid #4a6cf7;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: transparent;
+  color: #0147FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.employeeDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.employeeName {
+  font-weight: 600;
+  font-size: 14px;
+  color: #2D3541;
+  margin-bottom: 2px;
+}
+
+.employeeEmail {
+  font-weight: 400;
+  font-size: 12px;
+  color: #666;
+}
+
+.status {
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.paid {
+  background-color: #e6f4ea;
+  color: #137333;
+}
+
+.notCovered {
+  background-color: #fce8e6;
+  color: #c5221f;
+}
+
+.progressText {
+  font-size: 12px;
+  font-weight: 500;
+  color: #2D3541;
+}
+
+.actionButton {
+  padding: 0.4rem 0.8rem;
+  background-color: transparent;
+  color: #0147FF;
+  cursor: pointer;
+  border: none;
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    background-color: transparent;
+  color: #0147FF;
+  border: 1px solid #0147FF;
+  border-radius: 4px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .paymentsSection {
+    width: 100%;
+    max-width: 789px;
+      transform: translateX(0px);
+
+  }
+  
+  .tableHeader, .tableRow {
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .paymentsSection {
+    width: 100%;
+    padding: 1rem;
+  }
+  
+  .sectionHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .tableHeader {
+    display: none;
+  }
+  .filterContainer {
+    width: 100%;
+  }
+  
+  .filterDropdown {
+    right: auto;
+    left: 0;
+    width: 100%;
+  }
+  
+  .tableRow {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+    padding: 1rem;
+  }
+  
+  .colEmployee, .colStatus, .colProgress, .colAction {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.3rem 0;
+    
+    &::before {
+      content: attr(data-label);
+      font-weight: 600;
+      color: #555;
+      font-size: 0.9rem;
+    }
+  }
+  
+  .colEmployee {
+    flex-direction: column;
+    align-items: flex-start;
+    
+    &::before {
+      margin-bottom: 0.5rem;
+    }
+  }
+  
+  .employeeInfo {
+    width: 100%;
+  }
+}

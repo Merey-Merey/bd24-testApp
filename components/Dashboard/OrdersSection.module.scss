@@ -1,0 +1,132 @@
+.ordersSection {
+  background: white;
+  border-radius: 12px;
+  padding: 1rem;
+  border: 1px solid #00000024;
+  width: 100%;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: #2D3541;
+}
+
+.line {
+  border-left: 3px solid #4a6cf7;
+  height: 18px;
+  margin-right: 8px;
+}
+
+.ordersGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+.card {
+  background: #fff;
+  padding: 0.75rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #eee;
+  border-radius: 8px;
+}
+
+.cardImage {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+}
+
+.cardTitle {
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.downloadBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: #0147FF;
+  color: #fff;
+  width: 100%;
+  padding: 6px 8px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 10px;
+  transition: background 0.3s;
+}
+
+.downloadBtn:hover {
+  background: #3a55c9;
+}
+
+.sliderDots {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  gap: 0.5rem;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: #d3d3d3;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.dot.active {
+  background: #4a6cf7;
+}
+
+// Tablet and desktop styles
+@media (min-width: 768px) {
+  .ordersSection {
+    padding: 1.5rem;
+  }
+  
+  .sectionTitle {
+    font-size: 18px;
+  }
+  
+  .ordersGrid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+  
+  .cardImage {
+    height: 120px;
+  }
+  
+  .cardTitle {
+    font-size: 13px;
+    min-height: 50px;
+  }
+  
+  .downloadBtn {
+    width: 130px;
+    padding: 8px 12px;
+  }
+}
