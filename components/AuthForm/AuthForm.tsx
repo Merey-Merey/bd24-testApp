@@ -82,11 +82,15 @@ const validatePassword = (password: string) => {
 console.log('Server response:', { status: response.status, data });
 
 if (response.ok) {
+  if (data.user) {
+    localStorage.setItem('user', JSON.stringify(data.user));
+  }
   onSuccess();
 } else {
   setErrors({ submit: data.error });
   console.error('Server error:', data.error);
 }
+
     } catch (error) {
       setErrors({ submit: 'Произошла ошибка' });
     } finally {

@@ -25,17 +25,23 @@ export default async function handler(
       return res.status(400).json({ error: 'Пользователь с таким email уже существует' });
     }
 
+    const hashedPassword = await bcrypt.hash(password, 10);
+
     const result = userRepository.create({
       name,
       email,
-      password,
+      password: hashedPassword,
     });
 
     console.log('User created in database:', result.lastInsertRowid);
 
     res.status(201).json({
       message: 'Пользователь успешно зарегистрирован',
-      userId: result.lastInsertRowid,
+      user: {
+        id: result.lastInsertRowid,
+        name,
+        email,
+      },
     });
 
   } catch (error) {

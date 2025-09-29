@@ -19,27 +19,29 @@ const BITRIX_URL = "https://your-company.bitrix24.ru/rest/1/webhook-code";
 
 const ProfileForm: React.FC<ProfileFormProps> = ({ user, onUpdate }) => {
   const [formData, setFormData] = useState({
-    name: user.name || "Джолдаспаев Алимжан",
-    email: user.email || "name@mail.ru",
-    phone: user.phone || "+7 (123) 456-78-90",
-    address: user.address || "Адрес",
-  });
+  name: user.name || "",
+  email: user.email || "",
+  phone: user.phone || "",
+  address: user.address || "",
+});
+
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isEditing, setIsEditing] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const [initialData, setInitialData] = useState({ ...formData });
 
-  useEffect(() => {
-    const newData = {
-      name: user.name || "Джолдаспаев Алимжан",
-      email: user.email || "name@mail.ru",
-      phone: user.phone || "+7 (123) 456-78-90",
-      address: user.address || "Адрес",
-    };
-    setFormData(newData);
-    setInitialData(newData);
-  }, [user]);
+useEffect(() => {
+  const newData = {
+    name: user.name || "",
+    email: user.email || "",
+    phone: user.phone || "",
+    address: user.address || "",
+  };
+  setFormData(newData);
+  setInitialData(newData);
+}, [user]);
+
 
   const validateField = (name: string, value: string): string => {
     switch (name) {
@@ -189,7 +191,7 @@ const ProfileForm: React.FC<ProfileFormProps> = ({ user, onUpdate }) => {
                     name={key}
                     value={(formData as any)[key]}
                     onChange={handleChange}
-                    disabled={!isEditing}
+                    // disabled={!isEditing}
                     className={styles.inputField}
                   />
                 ) : (
@@ -205,13 +207,14 @@ const ProfileForm: React.FC<ProfileFormProps> = ({ user, onUpdate }) => {
 
           <div className={styles.actions}>
             {!isEditing ? (
-              <button
-                type="button"
-                onClick={() => setIsEditing(true)}
-                className={styles.editButton}
-              >
-                Редактировать
-              </button>
+             <button
+  type="button"
+  onClick={() => setIsEditing(true)}
+  className={styles.editButton}
+>
+  Редактировать
+</button>
+
             ) : (
               <>
                 <button

@@ -1,5 +1,4 @@
-// Dashboard.tsx
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import OrdersSection from './OrdersSection';
 import ProfileSection from './ProfileSection';
 import BroadcastSection from './BroadcastSection';
@@ -14,20 +13,26 @@ interface User {
   address?: string;
 }
 
-interface DashboardProps {
-  user: User;
-}
+const Dashboard: React.FC = () => {
+  const [user, setUser] = useState<User | null>(null);
 
-const Dashboard: React.FC<DashboardProps> = ({ user }) => {
+  useEffect(() => {
+    const savedUser = localStorage.getItem('user');
+    if (savedUser) {
+      setUser(JSON.parse(savedUser));
+    }
+  }, []);
+
   return (
     <div className={styles.dashboard}>
       <div className={styles.userInfo}>
         {user && (
-          <>
-            <span className={styles.welcome}>Привет, {user.name || user.email}  👋 </span>
-          </>
+          <span className={styles.welcome}>
+            Привет, {user.name || user.email} 👋
+          </span>
         )}
-      </div>      
+      </div>
+
       <div className={styles.grid}>
         <div className={styles.column}>
           <OrdersSection />
@@ -35,8 +40,8 @@ const Dashboard: React.FC<DashboardProps> = ({ user }) => {
         </div>
 
         <div className={styles.column}>
-          <ProfileSection user={user} />
-                    <PaymentsSection />
+          {user && <ProfileSection user={user} />}
+          <PaymentsSection />
         </div>
       </div>
     </div>
